@@ -1,3 +1,7 @@
+import DetectionImage from '../../assets/deteccao.png'
+import FastResponseImage from '../../assets/resposta.png'
+import MonitoringImage from '../../assets/monitoramento.png'
+
 import {
     AboutUsDescriptionCard,
     AboutUsSection,
@@ -43,7 +47,7 @@ function Home() {
             <DefaultHeader />
 
             <Main>
-                <h1>
+                <span>
                     Monitoramento de
                     <br />
                     vazamentos de gás amônia no
@@ -51,7 +55,7 @@ function Home() {
                     sistema de refrigeração de
                     <br />
                     frigoríficos
-                </h1>
+                </span>
 
                 <button>Ver nossas missões</button>
             </Main>
@@ -61,7 +65,7 @@ function Home() {
 
                 <SoluctionsCardsWrapper>
                     <SoluctionsCard>
-                        <SoluctionImage src="" alt="" />
+                        <SoluctionImage src={DetectionImage} alt="Imagem de um escudo" />
 
                         <SoluctionCardTitle>Detecção Precisa</SoluctionCardTitle>
 
@@ -73,7 +77,7 @@ function Home() {
                     </SoluctionsCard>
 
                     <SoluctionsCard>
-                        <SoluctionImage src="" alt="" />
+                        <SoluctionImage src={FastResponseImage} alt="Imagem de um raio" />
 
                         <SoluctionCardTitle>Resposta Rápida</SoluctionCardTitle>
 
@@ -85,7 +89,7 @@ function Home() {
                     </SoluctionsCard>
 
                     <SoluctionsCard>
-                        <SoluctionImage src="" alt="" />
+                        <SoluctionImage src={MonitoringImage} alt="Imagem de uma câmera" />
 
                         <SoluctionCardTitle>Monitoramento 24/7</SoluctionCardTitle>
 
