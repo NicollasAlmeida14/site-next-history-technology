@@ -1,0 +1,58 @@
+import {
+    ButtonsContainer,
+    Header,
+    Li,
+    Link,
+    LoginButton,
+    LogoContainer,
+    Nav,
+    RegisterButton,
+    Ul
+} from "./styles"
+
+import Logo from '../../assets/logo-nh3.png'
+
+
+function DefaultHeader() {
+    return (
+        <Header>
+            <LogoContainer>
+                <img src={Logo} alt="Logo da Next History Technology" />
+
+                <span>Next History Technology</span>
+            </LogoContainer>
+
+            <Nav>
+                <Ul>
+                    <Li>
+                        <Link href="">Home</Link>
+                    </Li>
+
+                    <Li>
+                        <Link href="">Sobre</Link>
+                    </Li>
+
+                    <Li>
+                        <Link href="">Simulador Financeiro</Link>
+                    </Li>
+
+                    <Li>
+                        <Link href="">Contrate-nos</Link>
+                    </Li>
+                </Ul>
+            </Nav>
+
+            <ButtonsContainer>
+                <LoginButton type="button">
+                    Login
+                </LoginButton>
+
+                <RegisterButton type="button">
+                    Cadastrar
+                </RegisterButton>
+            </ButtonsContainer>
+        </Header>
+    )
+}
+
+export default DefaultHeader
