@@ -1,3 +1,40 @@
+import {
+    AboutUsDescriptionCard,
+    AboutUsSection,
+    BaseboardContainer,
+    Container,
+    EmailContainer,
+    EmailInputContainer,
+    Footer,
+    Li,
+    Link,
+    LinksContainer,
+    LogoContainer,
+    Main,
+    MainContentContainer,
+    PoliciesContainer,
+    QuestionsContainer,
+    ServiceContainer,
+    ShortcutContainer,
+    SocialMidiaLogo,
+    SocialMidiasContainer,
+    SoluctionCardDescription,
+    SoluctionCardTitle,
+    SoluctionImage,
+    SoluctionsCard,
+    SoluctionsCardsWrapper,
+    SoluctionsSection,
+    Span,
+    SpanTitleFooter,
+    Subtitle,
+    Ul,
+    Value,
+    ValueDescription,
+    ValuesCard,
+    ValuesSection,
+    WhatIsItForSection
+} from "./styles"
+
 import DefaultHeader from "../../components/Header"
 
 function Home() {
@@ -60,6 +97,179 @@ function Home() {
                     </SoluctionsCard>
                 </SoluctionsCardsWrapper>
             </SoluctionsSection>
+
+            <AboutUsSection>
+                <img src="" alt="" />
+
+                <AboutUsDescriptionCard>
+                    <Subtitle>Quem Somos?</Subtitle>
+
+                    <p>
+                        A Next History Technology foi fundada em agosto de 2025, nossa empresa desenvolve soluções tecnológicas inovadoras em IoT, com foco na segurança industrial. Atuamos em frigoríficos de carne de grande porte, oferecendo sistemas de detecção de amônia que combinam sensores de gás ligados a arduinos de alta precisão com plataformas web intuitivas, garantindo monitoramento eficiente.
+                    </p>
+                </AboutUsDescriptionCard>
+            </AboutUsSection>
+
+            <WhatIsItForSection>
+                <Subtitle>Pra que Serve?</Subtitle>
+
+                <span>
+                    Monitoramento de Vazamentos de gás amônia
+                    no Sistema de Refrigeração em Frigoríficos.
+                </span>
+
+                <ul>
+                    <li>Garantir que o frigorifico atenda a lei NR - 36</li>
+                    <li>Evitar a paralização das operações</li>
+                    <li>Em caso de vazamento a empresa é avisada</li>
+                    <li>Evitar processos para empresa</li>
+                </ul>
+            </WhatIsItForSection>
+
+            <ValuesSection>
+                <ValuesCard>
+                    <img src="" alt="" />
+
+                    <Value>Missão</Value>
+
+                    <ValueDescription></ValueDescription>
+                </ValuesCard>
+
+                <ValuesCard>
+                    <img src="" alt="" />
+
+                    <Value>Missão</Value>
+
+                    <ValueDescription></ValueDescription>
+                </ValuesCard>
+
+                <ValuesCard>
+                    <img src="" alt="" />
+
+                    <Value>Missão</Value>
+
+                    <ValueDescription></ValueDescription>
+                </ValuesCard>
+            </ValuesSection>
+
+            {/* <ValuesSection>
+                <ValuesCard>
+                    <img src="" alt="" />
+
+                    <Value>Missão</Value>
+
+                    <ValueDescription></ValueDescription>
+                </ValuesCard>
+
+                <ValuesCard>
+                    <img src="" alt="" />
+
+                    <Value>Missão</Value>
+
+                    <ValueDescription></ValueDescription>
+                </ValuesCard>
+
+                <ValuesCard>
+                    <img src="" alt="" />
+
+                    <Value>Missão</Value>
+
+                    <ValueDescription></ValueDescription>
+                </ValuesCard>
+            </ValuesSection> */}
+
+            <Footer>
+                <LogoContainer>
+                    <span>Nest History Technology</span>
+
+                    <img src="" alt="" />
+                </LogoContainer>
+
+                <MainContentContainer>
+                    <LinksContainer>
+                        <ShortcutContainer>
+                            <SpanTitleFooter>Atalhos</SpanTitleFooter>
+
+                            <Ul>
+                                <Li>
+                                    <Link>Home</Link>
+                                </Li>
+
+                                <Li>
+                                    <Link>Soluções</Link>
+                                </Li>
+
+                                <Li>
+                                    <Link>Benefícios</Link>
+                                </Li>
+
+                                <Li>
+                                    <Link>História</Link>
+                                </Li>
+
+                                <Li>
+                                    <Link>Colaboradores</Link>
+                                </Li>
+                            </Ul>
+                        </ShortcutContainer>
+
+                        <QuestionsContainer>
+                            <Ul>
+                                <Li>
+                                    <Link>Dúvidas Frequentes</Link>
+                                </Li>
+
+                                <Li>
+                                    <Link>Suporte ao cliente</Link>
+                                </Li>
+                            </Ul>
+                        </QuestionsContainer>
+
+                        <ServiceContainer>
+                            <Ul>
+                                <Li>
+                                    <Link>(11) 95798-6462</Link>
+                                </Li>
+
+                                <Li>
+                                    <Link>Segunda a Sexta</Link>
+                                </Li>
+                            </Ul>
+                        </ServiceContainer>
+                    </LinksContainer>
+
+                    <EmailContainer>
+                        <SpanTitleFooter>Entre em contato pelo nosso E-mail</SpanTitleFooter>
+
+                        <Span>Tire suas dúvidas ou entre em contato para fechar negócio.</Span>
+
+                        <EmailInputContainer>
+                            <input type="email" placeholder="empresaria@nhtech.com" />
+                            <button>E-mail</button>
+                        </EmailInputContainer>
+                    </EmailContainer>
+                </MainContentContainer>
+
+                <BaseboardContainer>
+                    <Span>2025© Todos os direitos reservados</Span>
+
+                    <PoliciesContainer>
+                        <Span>Política de Privacidade</Span>
+
+                        <Span>Termos e Condições</Span>
+
+                        <Span>Política de Cookies</Span>
+                    </PoliciesContainer>
+
+                    <SocialMidiasContainer>
+                        <SocialMidiaLogo />
+
+                        <SocialMidiaLogo />
+
+                        <SocialMidiaLogo />
+                    </SocialMidiasContainer>
+                </BaseboardContainer>
+            </Footer>
         </Container>
     )
 }
