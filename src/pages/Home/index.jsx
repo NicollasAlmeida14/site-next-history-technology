@@ -1,6 +1,11 @@
 import DetectionImage from '../../assets/deteccao.png'
 import FastResponseImage from '../../assets/resposta.png'
 import MonitoringImage from '../../assets/monitoramento.png'
+import Logo from '../../assets/logo-nh3.png'
+import RefrigerationSystem from '../../assets/sistema-refrigeracao.png'
+import Mission from '../../assets/missao.png'
+import Vision from '../../assets/visao.png'
+import Values from '../../assets/valor.png'
 
 import {
     AboutUsDescriptionCard,
@@ -17,6 +22,7 @@ import {
     Main,
     MainContentContainer,
     PoliciesContainer,
+    PurposeImage,
     QuestionsContainer,
     ServiceContainer,
     ShortcutContainer,
@@ -32,11 +38,13 @@ import {
     SpanTitleFooter,
     Subtitle,
     Ul,
-    Value,
-    ValueDescription,
-    ValuesCard,
-    ValuesSection,
-    WhatIsItForSection
+    Purpose,
+    PurposeDescription,
+    PurposesCard,
+    PurposesSection,
+    WhatIsItForCardDescription,
+    WhatIsItForSection,
+    ImageBackground
 } from "./styles"
 
 import DefaultHeader from "../../components/Header"
@@ -57,7 +65,9 @@ function Home() {
                     frigoríficos
                 </span>
 
-                <button>Ver nossas missões</button>
+                <a href="">
+                    <button>Ver nossas missões</button>
+                </a>
             </Main>
 
             <SoluctionsSection>
@@ -103,7 +113,7 @@ function Home() {
             </SoluctionsSection>
 
             <AboutUsSection>
-                <img src="" alt="" />
+                <img src={Logo} alt="Logo da Next History Technology" />
 
                 <AboutUsDescriptionCard>
                     <Subtitle>Quem Somos?</Subtitle>
@@ -115,72 +125,90 @@ function Home() {
             </AboutUsSection>
 
             <WhatIsItForSection>
-                <Subtitle>Pra que Serve?</Subtitle>
+                <img src={RefrigerationSystem} alt="Imagem de um sistema de refrigeração de um frigorífico" />
 
-                <span>
-                    Monitoramento de Vazamentos de gás amônia
-                    no Sistema de Refrigeração em Frigoríficos.
-                </span>
+                <WhatIsItForCardDescription>
 
-                <ul>
-                    <li>Garantir que o frigorifico atenda a lei NR - 36</li>
-                    <li>Evitar a paralização das operações</li>
-                    <li>Em caso de vazamento a empresa é avisada</li>
-                    <li>Evitar processos para empresa</li>
-                </ul>
+                    <Subtitle>Pra que Serve?</Subtitle>
+
+                    <span>
+                        Monitoramento de Vazamentos de gás amônia
+                        no Sistema de Refrigeração em Frigoríficos.
+                    </span>
+
+                    <ul>
+                        <li>Garantir que o frigorifico atenda a lei NR - 36</li>
+                        <li>Evitar a paralização das operações</li>
+                        <li>Em caso de vazamento a empresa é avisada</li>
+                        <li>Evitar processos para empresa</li>
+                    </ul>
+
+                </WhatIsItForCardDescription>
             </WhatIsItForSection>
 
-            <ValuesSection>
-                <ValuesCard>
-                    <img src="" alt="" />
+            <PurposesSection>
+                <PurposesCard>
+                    <ImageBackground>
+                        <PurposeImage src={Mission} alt="Image de um tiro ao alvo" />
+                    </ImageBackground>
 
-                    <Value>Missão</Value>
+                    <Purpose>Missão</Purpose>
 
-                    <ValueDescription></ValueDescription>
-                </ValuesCard>
+                    <PurposeDescription></PurposeDescription>
+                </PurposesCard>
 
-                <ValuesCard>
-                    <img src="" alt="" />
+                <PurposesCard>
+                    <ImageBackground>
+                        <PurposeImage src="" alt="" />
+                    </ImageBackground>
 
-                    <Value>Missão</Value>
+                    <Purpose>Missão</Purpose>
 
-                    <ValueDescription></ValueDescription>
-                </ValuesCard>
+                    <PurposeDescription></PurposeDescription>
+                </PurposesCard>
 
-                <ValuesCard>
-                    <img src="" alt="" />
+                <PurposesCard>
+                    <ImageBackground>
+                        <PurposeImage src="" alt="" />
+                    </ImageBackground>
 
-                    <Value>Missão</Value>
+                    <Purpose>Missão</Purpose>
 
-                    <ValueDescription></ValueDescription>
-                </ValuesCard>
-            </ValuesSection>
+                    <PurposeDescription></PurposeDescription>
+                </PurposesCard>
+            </PurposesSection>
 
-            {/* <ValuesSection>
-                <ValuesCard>
-                    <img src="" alt="" />
+            {/* <PurposesSection>
+                <PurposesCard>
+                <ImageBackground>
+                    <PurposeImage src="" alt="" />
+                    </ImageBackground>
 
-                    <Value>Missão</Value>
+                    <Purpose>Missão</Purpose>
 
-                    <ValueDescription></ValueDescription>
-                </ValuesCard>
+                    <PurposeDescription></PurposeDescription>
+                </PurposesCard>
 
-                <ValuesCard>
-                    <img src="" alt="" />
+                <PurposesCard>
+                <ImageBackground>
+                    <PurposeImage src="" alt="" />
+                    </ImageBackground>
 
-                    <Value>Missão</Value>
+                    <Purpose>Missão</Purpose>
 
-                    <ValueDescription></ValueDescription>
-                </ValuesCard>
+                    <PurposeDescription></PurposeDescription>
+                </PurposesCard>
 
-                <ValuesCard>
-                    <img src="" alt="" />
+                <PurposesCard>
+                <ImageBackground>
+                    <PurposeImage src="" alt="" />
+                    </ImageBackground>
 
-                    <Value>Missão</Value>
+                    <Purpose>Missão</Purpose>
 
-                    <ValueDescription></ValueDescription>
-                </ValuesCard>
-            </ValuesSection> */}
+                    <PurposeDescription></PurposeDescription>
+                </PurposesCard>
+            </PurposesSection> */}
 
             <Footer>
                 <LogoContainer>
