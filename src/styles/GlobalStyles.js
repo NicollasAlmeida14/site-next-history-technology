@@ -7,4 +7,8 @@ export const GlobalStyles = createGlobalStyle`
         padding: 0;
         font-family: "Poppins", sans-serif;
     }
+
+    html {
+        scroll-behavior: smooth;
+    }
 `

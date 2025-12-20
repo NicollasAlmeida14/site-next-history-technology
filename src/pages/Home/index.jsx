@@ -6,6 +6,13 @@ import RefrigerationSystem from '../../assets/sistema-refrigeracao.png'
 import Mission from '../../assets/missao.png'
 import Vision from '../../assets/visao.png'
 import Values from '../../assets/valor.png'
+import LogoFooter from '../../assets/logo-footer.png'
+
+import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
+
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+
 
 import {
     AboutUsDescriptionCard,
@@ -44,14 +51,66 @@ import {
     PurposesSection,
     WhatIsItForCardDescription,
     WhatIsItForSection,
-    ImageBackground
+    ImageBackground,
+    SpanContainer,
+    RefrigerationImage
 } from "./styles"
 
 import DefaultHeader from "../../components/Header"
 
 function Home() {
+    const { ref: refDetection, inView: inViewDetection } = useInView({
+        triggerOnce: true,
+        threshold: 0.2
+    })
+
+    const { ref: refFastResponse, inView: inViewFastResponse } = useInView({
+        triggerOnce: true,
+        threshold: 0.2
+    })
+
+    const { ref: refMonitoring, inView: inViewMonitoring } = useInView({
+        triggerOnce: true,
+        threshold: 0.2
+    })
+
+    const { ref: refAboutUs, inView: inViewAboutUs } = useInView({
+        triggerOnce: true,
+        threshold: 0.2
+    })
+
+    const { ref: refWhatIsItForImg, inView: inViewWhatIsItForImg } = useInView({
+        triggerOnce: true,
+        threshold: 0.2
+    })
+
+    const { ref: refWhatIsItFor, inView: inViewWhatIsItFor } = useInView({
+        triggerOnce: true,
+        threshold: 0.2
+    })
+
+    const { ref: refMission, inView: inViewMission } = useInView({
+        triggerOnce: true,
+        threshold: 0.2
+    })
+
+    const { ref: refVision, inView: inViewVision } = useInView({
+        triggerOnce: true,
+        threshold: 0.2
+    })
+
+    const { ref: refValues, inView: inViewValues } = useInView({
+        triggerOnce: true,
+        threshold: 0.2
+    })
+
     return (
-        <Container>
+        <Container
+            as={motion.div}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ ease: 'easeIn', duration: 1 }}
+        >
             <DefaultHeader />
 
             <Main>
@@ -74,7 +133,13 @@ function Home() {
                 <h1>Nossas Soluções</h1>
 
                 <SoluctionsCardsWrapper>
-                    <SoluctionsCard>
+                    <SoluctionsCard
+                        as={motion.div}
+                        ref={refDetection}
+                        initial={{ x: -100, opacity: 0 }}
+                        animate={inViewDetection ? { x: 0, opacity: 1 } : {}}
+                        transition={{ ease: 'easeIn', duration: 1 }}
+                    >
                         <SoluctionImage src={DetectionImage} alt="Imagem de um escudo" />
 
                         <SoluctionCardTitle>Detecção Precisa</SoluctionCardTitle>
@@ -86,7 +151,13 @@ function Home() {
                         </SoluctionCardDescription>
                     </SoluctionsCard>
 
-                    <SoluctionsCard>
+                    <SoluctionsCard
+                        as={motion.div}
+                        ref={refFastResponse}
+                        initial={{ y: -100, opacity: 0 }}
+                        animate={inViewFastResponse ? { y: 0, opacity: 1 } : {}}
+                        transition={{ ease: 'easeIn', duration: 1 }}
+                    >
                         <SoluctionImage src={FastResponseImage} alt="Imagem de um raio" />
 
                         <SoluctionCardTitle>Resposta Rápida</SoluctionCardTitle>
@@ -98,7 +169,13 @@ function Home() {
                         </SoluctionCardDescription>
                     </SoluctionsCard>
 
-                    <SoluctionsCard>
+                    <SoluctionsCard
+                        as={motion.div}
+                        ref={refMonitoring}
+                        initial={{ x: 100, opacity: 0 }}
+                        animate={inViewMonitoring ? { x: 0, opacity: 1 } : {}}
+                        transition={{ ease: 'easeIn', duration: 1 }}
+                    >
                         <SoluctionImage src={MonitoringImage} alt="Imagem de uma câmera" />
 
                         <SoluctionCardTitle>Monitoramento 24/7</SoluctionCardTitle>
@@ -115,7 +192,13 @@ function Home() {
             <AboutUsSection>
                 <img src={Logo} alt="Logo da Next History Technology" />
 
-                <AboutUsDescriptionCard>
+                <AboutUsDescriptionCard
+                    as={motion.div}
+                    ref={refAboutUs}
+                    initial={{ scale: 0.3, opacity: 0 }}
+                    animate={inViewAboutUs ? { scale: 1, opacity: 1 } : {}}
+                    transition={{ ease: 'easeIn', duration: 1 }}
+                >
                     <Subtitle>Quem Somos?</Subtitle>
 
                     <p>
@@ -125,9 +208,23 @@ function Home() {
             </AboutUsSection>
 
             <WhatIsItForSection>
-                <img src={RefrigerationSystem} alt="Imagem de um sistema de refrigeração de um frigorífico" />
+                <RefrigerationImage
+                    src={RefrigerationSystem}
+                    alt="Imagem de um sistema de refrigeração de um frigorífico"
+                    as={motion.img}
+                    ref={refWhatIsItForImg}
+                    initial={{ x: -100, opacity: 0 }}
+                    animate={inViewWhatIsItForImg ? { x: 0, opacity: 1 } : {}}
+                    transition={{ ease: 'easeIn', duration: 1 }}
+                />
 
-                <WhatIsItForCardDescription>
+                <WhatIsItForCardDescription
+                    as={motion.div}
+                    ref={refWhatIsItFor}
+                    initial={{ x: 100, opacity: 0 }}
+                    animate={inViewWhatIsItFor ? { x: 0, opacity: 1 } : {}}
+                    transition={{ ease: 'easeIn', duration: 1 }}
+                >
 
                     <Subtitle>Pra que Serve?</Subtitle>
 
@@ -147,34 +244,58 @@ function Home() {
             </WhatIsItForSection>
 
             <PurposesSection>
-                <PurposesCard>
+                <PurposesCard
+                    as={motion.div}
+                    ref={refMission}
+                    initial={{ y: 100, opacity: 0 }}
+                    animate={inViewMission ? { y: 0, opacity: 1 } : {}}
+                    transition={{ ease: 'easeIn', duration: 1 }}
+                >
                     <ImageBackground>
-                        <PurposeImage src={Mission} alt="Image de um tiro ao alvo" />
+                        <PurposeImage src={Mission} alt="Ícone de um tiro ao alvo" />
                     </ImageBackground>
 
                     <Purpose>Missão</Purpose>
 
-                    <PurposeDescription></PurposeDescription>
+                    <PurposeDescription>
+                        Nosso compromisso é garantir segurança através de soluções tecnológicas que monitoram riscos e protegem o que realmente importa: vidas e bens.
+                    </PurposeDescription>
                 </PurposesCard>
 
-                <PurposesCard>
+                <PurposesCard id='vision-card'
+                    as={motion.div}
+                    ref={refVision}
+                    initial={{ y: 100, opacity: 0 }}
+                    animate={inViewVision ? { y: 0, opacity: 1 } : {}}
+                    transition={{ ease: 'easeIn', duration: 1.7 }}
+                >
                     <ImageBackground>
-                        <PurposeImage src="" alt="" />
+                        <PurposeImage src={Vision} alt="Íconde de um olho" />
                     </ImageBackground>
 
-                    <Purpose>Missão</Purpose>
+                    <Purpose>Visão</Purpose>
 
-                    <PurposeDescription></PurposeDescription>
+                    <PurposeDescription>
+                        Buscamos constantemente novas ideias, tecnologias e métodos para evoluir, oferecendo sempre o que há de mais moderno e eficiente no mercado.
+                    </PurposeDescription>
                 </PurposesCard>
 
-                <PurposesCard>
+                <PurposesCard
+                    as={motion.div}
+                    ref={refValues}
+                    initial={{ y: 100, opacity: 0 }}
+                    animate={inViewValues ? { y: 0, opacity: 1 } : {}}
+                    transition={{ ease: 'easeIn', duration: 2.4 }}
+                >
                     <ImageBackground>
-                        <PurposeImage src="" alt="" />
+                        <PurposeImage src={Values} alt="Ícone de um diamante" />
                     </ImageBackground>
 
-                    <Purpose>Missão</Purpose>
+                    <Purpose>Valores</Purpose>
 
-                    <PurposeDescription></PurposeDescription>
+                    <PurposeDescription>
+                        Valorizamos a honestidade, a dedicação e a atenção aos detalhes, construindo parcerias sólidas e entregando resultados com qualidade, comprometimento e profissionalismo.
+                    </PurposeDescription>
                 </PurposesCard>
             </PurposesSection>
 
@@ -212,9 +333,9 @@ function Home() {
 
             <Footer>
                 <LogoContainer>
-                    <span>Nest History Technology</span>
+                    <span>Next History Technology</span>
 
-                    <img src="" alt="" />
+                    <img src={LogoFooter} alt="Logo da Next History Technology na cor cinza" />
                 </LogoContainer>
 
                 <MainContentContainer>
@@ -224,56 +345,59 @@ function Home() {
 
                             <Ul>
                                 <Li>
-                                    <Link>Home</Link>
+                                    <Link href=''>Home</Link>
                                 </Li>
 
                                 <Li>
-                                    <Link>Soluções</Link>
+                                    <Link href=''>Soluções</Link>
                                 </Li>
 
                                 <Li>
-                                    <Link>Benefícios</Link>
+                                    <Link href=''>Benefícios</Link>
                                 </Li>
 
                                 <Li>
-                                    <Link>História</Link>
+                                    <Link href=''>História</Link>
                                 </Li>
 
                                 <Li>
-                                    <Link>Colaboradores</Link>
+                                    <Link href=''>Colaboradores</Link>
                                 </Li>
                             </Ul>
                         </ShortcutContainer>
 
                         <QuestionsContainer>
+                            <SpanTitleFooter>Dúvidas</SpanTitleFooter>
+
                             <Ul>
                                 <Li>
-                                    <Link>Dúvidas Frequentes</Link>
+                                    <Link href=''>Dúvidas Frequentes</Link>
                                 </Li>
 
                                 <Li>
-                                    <Link>Suporte ao cliente</Link>
+                                    <Link href=''>Suporte ao cliente</Link>
                                 </Li>
                             </Ul>
                         </QuestionsContainer>
 
                         <ServiceContainer>
-                            <Ul>
-                                <Li>
-                                    <Link>(11) 95798-6462</Link>
-                                </Li>
+                            <SpanTitleFooter>Atendimento</SpanTitleFooter>
 
-                                <Li>
-                                    <Link>Segunda a Sexta</Link>
-                                </Li>
+
+                            <Ul>
+                                <Li>(11) 95798-6462</Li>
+
+                                <Li>Segunda a Sexta</Li>
                             </Ul>
                         </ServiceContainer>
                     </LinksContainer>
 
                     <EmailContainer>
-                        <SpanTitleFooter>Entre em contato pelo nosso E-mail</SpanTitleFooter>
+                        <SpanContainer>
+                            <SpanTitleFooter>Entre em contato pelo nosso E-mail</SpanTitleFooter>
 
-                        <Span>Tire suas dúvidas ou entre em contato para fechar negócio.</Span>
+                            <Span>Tire suas dúvidas ou entre em contato para fechar negócio.</Span>
+                        </SpanContainer>
 
                         <EmailInputContainer>
                             <input type="email" placeholder="empresaria@nhtech.com" />
@@ -294,11 +418,17 @@ function Home() {
                     </PoliciesContainer>
 
                     <SocialMidiasContainer>
-                        <SocialMidiaLogo />
+                        <SocialMidiaLogo>
+                            <FaInstagram />
+                        </SocialMidiaLogo>
 
-                        <SocialMidiaLogo />
+                        <SocialMidiaLogo>
+                            <FaLinkedin />
+                        </SocialMidiaLogo>
 
-                        <SocialMidiaLogo />
+                        <SocialMidiaLogo>
+                            <FaGithub />
+                        </SocialMidiaLogo>
                     </SocialMidiasContainer>
                 </BaseboardContainer>
             </Footer>

@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 import BackgroundMain from '../../assets/tela-inicial.png'
+import BackgrondFooter from '../../assets/plano-de-fundo-footer.jpeg'
 
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding: 7rem 0;
+    padding: 7rem 0 0;
+    overflow-x: hidden;
 `
 
 export const Main = styled.main`
@@ -77,6 +79,7 @@ export const SoluctionsCard = styled.div`
     height: 50vh;
     width: 400px;
     position: relative;
+    justify-content: space-evenly;
 
     &::after {
         content: '';
@@ -152,14 +155,13 @@ export const WhatIsItForSection = styled.section`
     align-items: center;
     justify-content: flex-start;
     padding: 1rem 3rem;
+`
 
-
-    img {
-        width: max-content;
-        height: 500px;
-        position: relative;
-        border-radius: 15px;
-    }
+export const RefrigerationImage = styled.img`
+    width: max-content;
+    height: 500px;
+    position: relative;
+    border-radius: 15px;
 `
 
 export const WhatIsItForCardDescription = styled.div`
@@ -170,7 +172,7 @@ export const WhatIsItForCardDescription = styled.div`
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-    height: 55%;
+    height: 60%;
     align-items: center;
     justify-content: space-between;
     width: 680px;
@@ -180,12 +182,13 @@ export const WhatIsItForCardDescription = styled.div`
         font-size: 25px;
         font-weight: bold;
         text-align: center;
+        line-height: 1.5;
     }
 
     ul {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.5rem;
     }
 
     li {
@@ -199,13 +202,21 @@ export const PurposesSection = styled.section`
     align-items: center;
     width: 100%;
     justify-content: space-around;
-    padding: 1rem 2rem;
+    padding: 1rem;
+
+    #vision-card {
+        border-right: solid 3px #a038f3;
+        border-left: solid 3px #a038f3;
+    }
 `
 
 export const PurposesCard = styled.div`
     display: flex;
     flex-direction: column;
-    /* height: 300px; */
+    align-items: center;
+    width: 50%;
+    height: 450px;
+    justify-content: space-around;
 `
 
 export const ImageBackground = styled.div`
@@ -221,45 +232,213 @@ export const ImageBackground = styled.div`
 
 export const PurposeImage = styled.img`
     position: absolute;
-
 `
 
-export const Purpose = styled.span``
+export const Purpose = styled.span`
+    color: #a038f3;
+    font-size: 35px;
+    font-weight: bold;
+`
 
-export const PurposeDescription = styled.p``
+export const PurposeDescription = styled.p`
+    font-size: 23px;
+    text-align: center;
+    line-height: 1.5;
+    width: 80%;
+    overflow-wrap: break-word;
+`
 
-export const Footer = styled.footer``
+export const Footer = styled.footer`
+    height: 90vh;
+    background-image: url(${BackgrondFooter});
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2.5rem;
+    justify-content: space-between;
+`
 
-export const LogoContainer = styled.div``
+export const LogoContainer = styled.div`
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
 
-export const MainContentContainer = styled.div``
+    img {
+        width: 220px;;
+    }
 
-export const LinksContainer = styled.div``
+    span {
+        font-size: 32px;
+        font-weight: bold;
+        color: #ffffff;
+    }
+`
 
-export const ShortcutContainer = styled.nav``
+export const MainContentContainer = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+`
 
-export const SpanTitleFooter = styled.span``
+export const LinksContainer = styled.div`
+    display: flex;
+    gap: 2.5rem;
+`
 
-export const Ul = styled.ul``
+export const ShortcutContainer = styled.nav`
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+`
 
-export const Li = styled.li``
+export const SpanTitleFooter = styled.span`
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff;
+`
 
-export const Link = styled.a``
+export const Ul = styled.ul`
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+`
 
-export const QuestionsContainer = styled.nav``
+export const Li = styled.li`
+    list-style: none;
+    font-size: 18px;
+    color: #ffffff;
+`
 
-export const ServiceContainer = styled.nav``
+export const Link = styled.a`
+    text-decoration: none;
+    color: #ffffff;
+    position: relative;
+    padding-bottom: 3px;
 
-export const EmailContainer = styled.div``
+    &::after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #ffffff;
+        transition: width ease-in-out 0.5s;
+    }
 
-export const Span = styled.span``
+    &:hover::after {
+        width: 100%;
+    }
 
-export const EmailInputContainer = styled.div``
+    &:active {
+        opacity: 0.7;
+    }
+`
 
-export const BaseboardContainer = styled.div``
+export const QuestionsContainer = styled.nav`
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+`
 
-export const PoliciesContainer = styled.span``
+export const ServiceContainer = styled.nav`
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+`
 
-export const SocialMidiasContainer = styled.div``
+export const EmailContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+`
 
-export const SocialMidiaLogo = styled.img``
+export const SpanContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+`
+
+export const Span = styled.span`
+    font-size: 16px;
+    color: #ffffff;
+`
+
+export const EmailInputContainer = styled.div`
+    display: flex;
+    gap: 1rem;
+
+    input {
+        padding: 13px 8px;
+        width: 250px;
+        border: none;
+        border-radius: 15px;
+        font-size: 16px;
+    }
+
+    button {
+        border: solid 1.5px #ffffff;
+        cursor: pointer;
+        border-radius: 15px;
+        width: 90px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #ffffff;
+        background: transparent;
+        transition: background-color ease-in-out 0.3s,
+            color ease-in-out 0.3s,
+            opacity ease 0.3s
+        ;
+
+        &:hover {
+            background-color: #ffffff;
+            color: #5a189a;
+        }
+
+        &:active {
+            opacity: 0.7;
+        }
+    }
+`
+
+export const BaseboardContainer = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    border-top: solid 2px #ffffff;
+    padding-top: 1rem;
+`
+
+export const PoliciesContainer = styled.div`
+    display: flex;
+    gap: 2rem;
+`
+
+export const SocialMidiasContainer = styled.div`
+    display: flex;
+    gap: 2rem;
+`
+
+export const SocialMidiaLogo = styled.button`
+    font-size: 30px;
+    color: #ffffff;
+    cursor: pointer;
+    background: none;
+    border: none;
+
+    &:hover {
+        transform: translateY(-4px);
+        transition: ease-in-out 0.3s;
+    }  
+    
+    &:active {
+        opacity: 0.6;
+        transform: translateY(0);
+        transition: ease 0.3s;
+    }
+`
