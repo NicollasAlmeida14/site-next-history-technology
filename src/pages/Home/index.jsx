@@ -113,7 +113,7 @@ function Home() {
         >
             <DefaultHeader />
 
-            <Main>
+            <Main id='main'>
                 <span>
                     Monitoramento de
                     <br />
@@ -124,8 +124,8 @@ function Home() {
                     frigoríficos
                 </span>
 
-                <a href="">
-                    <button>Ver nossas missões</button>
+                <a href="#purposes">
+                    <button>Nossos propósitos</button>
                 </a>
             </Main>
 
@@ -189,7 +189,7 @@ function Home() {
                 </SoluctionsCardsWrapper>
             </SoluctionsSection>
 
-            <AboutUsSection>
+            <AboutUsSection id='about'>
                 <img src={Logo} alt="Logo da Next History Technology" />
 
                 <AboutUsDescriptionCard
@@ -243,7 +243,7 @@ function Home() {
                 </WhatIsItForCardDescription>
             </WhatIsItForSection>
 
-            <PurposesSection>
+            <PurposesSection id='purposes'>
                 <PurposesCard
                     as={motion.div}
                     ref={refMission}

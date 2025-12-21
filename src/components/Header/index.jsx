@@ -25,11 +25,11 @@ function DefaultHeader() {
             <Nav>
                 <Ul>
                     <Li>
-                        <Link href="">Home</Link>
+                        <Link href="#main">Home</Link>
                     </Li>
 
                     <Li>
-                        <Link href="">Sobre</Link>
+                        <Link href="#about">Sobre</Link>
                     </Li>
 
                     <Li>
