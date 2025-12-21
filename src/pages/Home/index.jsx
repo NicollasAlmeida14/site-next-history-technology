@@ -59,6 +59,10 @@ import {
 import DefaultHeader from "../../components/Header"
 
 function Home() {
+    const anotherTab = (url) => {
+        window.open(url, '_blank')
+    }
+
     const { ref: refDetection, inView: inViewDetection } = useInView({
         triggerOnce: true,
         threshold: 0.2
@@ -129,7 +133,7 @@ function Home() {
                 </a>
             </Main>
 
-            <SoluctionsSection>
+            <SoluctionsSection id='soluctions'>
                 <h1>Nossas Soluções</h1>
 
                 <SoluctionsCardsWrapper>
@@ -345,11 +349,11 @@ function Home() {
 
                             <Ul>
                                 <Li>
-                                    <Link href=''>Home</Link>
+                                    <Link href='#main'>Home</Link>
                                 </Li>
 
                                 <Li>
-                                    <Link href=''>Soluções</Link>
+                                    <Link href='#soluctions'>Soluções</Link>
                                 </Li>
 
                                 <Li>
@@ -357,7 +361,7 @@ function Home() {
                                 </Li>
 
                                 <Li>
-                                    <Link href=''>História</Link>
+                                    <Link href='#about'>História</Link>
                                 </Li>
 
                                 <Li>
@@ -426,7 +430,9 @@ function Home() {
                             <FaLinkedin />
                         </SocialMidiaLogo>
 
-                        <SocialMidiaLogo>
+                        <SocialMidiaLogo
+                            onClick={() => anotherTab('https://github.com/NicollasAlmeida14')}
+                        >
                             <FaGithub />
                         </SocialMidiaLogo>
                     </SocialMidiasContainer>

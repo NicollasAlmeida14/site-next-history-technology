@@ -48,6 +48,8 @@ export const Link = styled.a`
     font-weight: bold;
     padding-bottom: 4px;
     position: relative;
+    color: #5a189a;
+    cursor: pointer;
 
     &::after {
         content: '';
@@ -65,7 +67,6 @@ export const Link = styled.a`
     }
 
     &:active {
-        color: #5a189a;
         opacity: 0.8;
     }
 `
