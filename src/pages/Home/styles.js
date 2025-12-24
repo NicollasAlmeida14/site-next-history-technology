@@ -248,6 +248,317 @@ export const PurposeDescription = styled.p`
     overflow-wrap: break-word;
 `
 
+export const MoreInfosSection = styled.section`
+    height: 110vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    background-color: #e2e2eb;
+    padding-top: 3.5rem;
+`
+
+export const PlansWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80%;
+    justify-content: space-between;
+`
+
+export const MoreInfosTitle = styled.h2`
+    color: #a038f2;
+    font-size: 35px;
+`
+
+export const PlansContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: min-content;
+    gap: 2rem;
+    align-items: center;
+    background-color: rgba(160, 56, 242, 0.25);
+    padding: 2rem 1rem 1rem;
+    border-radius: 15px;
+    width: 55%;
+`
+
+export const PlanSubtitle = styled.h3`
+    width: 100%;
+    text-align: start;    
+    color: #ffffff;
+    font-size: 25px;
+
+    span {
+        font-size: 30px;
+        color: #a038f2;
+        border-bottom: solid 2px #a038f2;
+        padding-bottom: 5px;
+    }
+`
+
+export const PlansCardContainer = styled.div`
+    display: flex;
+    gap: 0.5rem;
+`
+
+export const PlansSpansContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+`
+
+export const SemiAnnualCard = styled.div`
+    background-color: #ffffff;
+    height: 250px;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 15px;
+    width: 200px;
+`
+
+export const SemiAnnualPlanSpan = styled.span`
+    font-size: 20px;
+    font-weight: 700;
+    color: #a038f2;
+`
+
+export const AnnualPlanSpan = styled.span`
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+`
+
+export const SemiAnnualPlanPrice = styled.span`
+    text-align: center;
+    color: #5a189a;
+    font-size: 25px;
+    font-weight: bold;
+
+    span {
+        font-size: 15px;
+    }
+`
+
+export const AnnualPlanPrice = styled.span`
+    text-align: center;
+    color: #ebebeb;
+    font-size: 25px;
+    font-weight: bold;
+
+    span {
+        font-size: 15px;
+    }
+`
+
+export const PlanUl = styled.ul`
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+`
+
+export const SemiAnnualPlanLi = styled.li`
+    color: #5a189a;
+    font-size: 16px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+`
+
+export const AnnualPlanLi = styled.li`
+    color: #ffffff;
+    font-size: 15px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+`
+
+export const AnnualCard = styled.div`
+    background-color: #a038f3;
+    height: 250px;
+    width: 185px;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 15px;
+`
+
+export const DiscountSpan = styled.span`
+    background-color: #8C00FF;
+    color: #ffffff;
+    padding: 5px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    border: solid 1px #ffffff;
+`
+
+export const PlansButton = styled.button`
+    border: solid 2px #a038f3;
+    background-color: #a038f3;
+    width: 55%;
+    cursor: pointer;
+    padding: 12px 5px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 15px;
+    transition: all ease 0.3s;
+
+    &:hover {
+        background-color: #ffffff;
+        color: #a038f3;
+    }
+
+    &:active {
+        opacity: 0.6;
+    }
+`
+
+export const PlanDescription = styled.span`
+    font-size: 18px;
+    width: 55%;
+    text-align: center;
+    color: #8C00FF;
+    margin-bottom: 10px;
+`
+
+export const MetricsWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 80%;
+`
+
+export const MetricsContainer = styled.div`
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    width: min-content;
+    padding: 0.5rem 1.5rem;
+    border-radius: 15px;
+    margin-top: 10px;
+    box-shadow: 5px 3px 6px 0px rgba(0, 0, 0, 0.25);
+`
+
+export const MeterContainer = styled.div`
+    position: relative;
+
+    img {
+        width: 250px;
+    }
+`
+
+export const ImageContainer = styled.div`
+    position: relative;
+`
+
+export const MinLimitSpan = styled.span`
+    position: absolute;
+    bottom: 15px;
+    left: 62px;
+    font-size: 12px;
+    font-weight: 700;
+`
+
+export const MaxLimitSpan = styled.span`
+    position: absolute;
+    bottom: 15px;
+    right: 50px;
+    font-size: 12px;
+    font-weight: 700;
+`
+
+export const Meter = styled.div`
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 35%;
+    text-align: center;
+    gap: 0.3rem;
+`
+
+export const ActualLevelSpan = styled.span`
+    font-size: 15px;
+`
+
+export const Ppm = styled.span`
+    font-size: 25px;
+    font-weight: bold;
+`
+
+export const MetricDescriptionContainer = styled.div`
+    width: 100%;
+    background-color: rgba(160, 56, 242, 0.25);
+    padding: 1rem;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+`
+
+export const MetricSpan = styled.span`
+    font-size: 20px;
+    font-weight: 700;
+`
+
+export const MetricDescription = styled.span`
+    display: flex;
+    gap: 0.5rem;
+
+    span {
+        font-size: 15px;
+        padding-top: 2px;
+        color: #5a189a;
+    }
+`
+
+export const SimulatorContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    input {
+        width: 400px;
+        cursor: pointer;
+        accent-color: #a038f2;
+    }
+`
+
+export const MetricButton = styled.button`
+    border: solid 2px #a038f3;
+    background-color: transparent;
+    width: 400px;
+    cursor: pointer;
+    padding: 12px 5px;
+    color: #a038f3;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 15px;
+    transition: all ease 0.3s;
+
+    &:hover {
+        background-color: #a038f3;
+        color: #ffffff;
+    }
+
+    &:active {
+        opacity: 0.6;
+    }
+`
+
 export const Footer = styled.footer`
     height: 90vh;
     background-image: url(${BackgrondFooter});

@@ -7,8 +7,15 @@ import Mission from '../../assets/missao.png'
 import Vision from '../../assets/visao.png'
 import Values from '../../assets/valor.png'
 import LogoFooter from '../../assets/logo-footer.png'
+import MeterBow from '../../assets/arco.png'
 
-import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
+import {
+    FaInstagram,
+    FaLinkedin,
+    FaGithub,
+    FaCheck,
+    FaCheckCircle
+} from "react-icons/fa";
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
@@ -53,7 +60,40 @@ import {
     WhatIsItForSection,
     ImageBackground,
     SpanContainer,
-    RefrigerationImage
+    RefrigerationImage,
+    MoreInfosSection,
+    PlansWrapper,
+    MoreInfosTitle,
+    PlansContainer,
+    PlanSubtitle,
+    PlansCardContainer,
+    SemiAnnualCard,
+    SemiAnnualPlanSpan,
+    SemiAnnualPlanPrice,
+    PlanUl,
+    SemiAnnualPlanLi,
+    AnnualCard,
+    PlansButton,
+    PlanDescription,
+    MetricsWrapper,
+    MetricsContainer,
+    PlansSpansContainer,
+    AnnualPlanSpan,
+    AnnualPlanPrice,
+    AnnualPlanLi,
+    DiscountSpan,
+    MeterContainer,
+    Meter,
+    ActualLevelSpan,
+    Ppm,
+    MetricDescriptionContainer,
+    MetricSpan,
+    MetricDescription,
+    SimulatorContainer,
+    MetricButton,
+    ImageContainer,
+    MinLimitSpan,
+    MaxLimitSpan
 } from "./styles"
 
 import DefaultHeader from "../../components/Header"
@@ -89,6 +129,16 @@ function Home() {
     })
 
     const { ref: refWhatIsItFor, inView: inViewWhatIsItFor } = useInView({
+        triggerOnce: true,
+        threshold: 0.2
+    })
+
+    const { ref: refPlans, inView: inViewPlans } = useInView({
+        triggerOnce: true,
+        threshold: 0.2
+    })
+
+    const { ref: refMetrics, inView: inViewMetrics } = useInView({
         triggerOnce: true,
         threshold: 0.2
     })
@@ -303,37 +353,136 @@ function Home() {
                 </PurposesCard>
             </PurposesSection>
 
-            {/* <PurposesSection>
-                <PurposesCard>
-                <ImageBackground>
-                    <PurposeImage src="" alt="" />
-                    </ImageBackground>
+            <MoreInfosSection id='more-infos'>
+                <PlansWrapper
+                    as={motion.div}
+                    ref={refPlans}
+                    initial={{ opacity: 0, y: -100 }}
+                    animate={inViewPlans ? { opacity: 1, y: 0 } : {}}
+                    transition={{ ease: 'easeInOut', duration: 1 }}
+                >
+                    <MoreInfosTitle>Conheça nossos planos</MoreInfosTitle>
 
-                    <Purpose>Missão</Purpose>
+                    <PlansContainer>
+                        <PlanSubtitle>A partir de <span>R$ 75.000</span></PlanSubtitle>
 
-                    <PurposeDescription></PurposeDescription>
-                </PurposesCard>
+                        <PlansCardContainer>
+                            <SemiAnnualCard>
+                                <PlansSpansContainer>
+                                    <SemiAnnualPlanSpan>Plano Semestral</SemiAnnualPlanSpan>
 
-                <PurposesCard>
-                <ImageBackground>
-                    <PurposeImage src="" alt="" />
-                    </ImageBackground>
+                                    <SemiAnnualPlanPrice>
+                                        R$ 1.250
+                                        <span> /mês</span>
+                                    </SemiAnnualPlanPrice>
+                                </PlansSpansContainer>
 
-                    <Purpose>Missão</Purpose>
+                                <PlanUl>
+                                    <SemiAnnualPlanLi>
+                                        <FaCheck />
+                                        Suporte 24/7
+                                    </SemiAnnualPlanLi>
 
-                    <PurposeDescription></PurposeDescription>
-                </PurposesCard>
+                                    <SemiAnnualPlanLi>
+                                        <FaCheck />
+                                        Instalação imediata
+                                    </SemiAnnualPlanLi>
 
-                <PurposesCard>
-                <ImageBackground>
-                    <PurposeImage src="" alt="" />
-                    </ImageBackground>
+                                    <SemiAnnualPlanLi>
+                                        <FaCheck />
+                                        Atualizações mensais
+                                    </SemiAnnualPlanLi>
+                                </PlanUl>
+                            </SemiAnnualCard>
 
-                    <Purpose>Missão</Purpose>
+                            <AnnualCard>
+                                <PlansSpansContainer>
+                                    <AnnualPlanSpan>Plano Anual</AnnualPlanSpan>
 
-                    <PurposeDescription></PurposeDescription>
-                </PurposesCard>
-            </PurposesSection> */}
+                                    <AnnualPlanPrice>
+                                        R$ 1.062
+                                        <span> /mês</span>
+                                    </AnnualPlanPrice>
+
+                                    <DiscountSpan>Economize 10%</DiscountSpan>
+                                </PlansSpansContainer>
+
+                                <PlanUl>
+                                    <AnnualPlanLi>
+                                        <FaCheck />
+                                        Suporte 24/7
+                                    </AnnualPlanLi>
+
+                                    <AnnualPlanLi>
+                                        <FaCheck />
+                                        Instalação imediata
+                                    </AnnualPlanLi>
+
+                                    <AnnualPlanLi>
+                                        <FaCheck />
+                                        Tecnologia avançada
+                                    </AnnualPlanLi>
+                                </PlanUl>
+                            </AnnualCard>
+                        </PlansCardContainer>
+                    </PlansContainer>
+
+                    <PlansButton>Ver planos detalhados</PlansButton>
+
+                    <PlanDescription>
+                        Mais segurança, economia e tranquilidade para o seu frigorífico
+                    </PlanDescription>
+                </PlansWrapper>
+
+                <MetricsWrapper
+                    as={motion.div}
+                    ref={refMetrics}
+                    initial={{ opacity: 0, y: 100 }}
+                    animate={inViewMetrics ? { opacity: 1, y: 0 } : {}}
+                    transition={{ ease: 'easeInOut', duration: 1 }}
+                >
+                    <MoreInfosTitle>Métricas e Monitoramento</MoreInfosTitle>
+
+                    <MetricsContainer>
+                        <MeterContainer>
+                            <ImageContainer>
+                                <img src={MeterBow} alt="Arco de medição" />
+
+                                <MinLimitSpan>0</MinLimitSpan>
+                                <MaxLimitSpan>30+</MaxLimitSpan>
+                            </ImageContainer>
+
+                            <Meter>
+                                <ActualLevelSpan>Nível atual:</ActualLevelSpan>
+
+                                <Ppm>
+                                    <span>14</span>
+                                    ppm
+                                </Ppm>
+                            </Meter>
+                        </MeterContainer>
+
+
+                        <MetricDescriptionContainer>
+                            <MetricSpan>Conformidade com NR-15</MetricSpan>
+
+                            <MetricDescription>
+                                <span> <FaCheckCircle /> </span>
+
+                                Monitoramos os níveis de gás amônia 24/7. Acima de 20ppm (48h semanais), o ambiente está fora do padrão de segurança.
+                            </MetricDescription>
+                        </MetricDescriptionContainer>
+
+                        <SimulatorContainer>
+                            <MetricSpan>Simule diferentes cenários</MetricSpan>
+
+                            <input type="range" min={0} max={50} />
+                        </SimulatorContainer>
+
+                        <MetricButton>Entenda nosso sistema</MetricButton>
+                    </MetricsContainer>
+                </MetricsWrapper>
+            </MoreInfosSection>
 
             <Footer>
                 <LogoContainer>
@@ -438,7 +587,7 @@ function Home() {
                     </SocialMidiasContainer>
                 </BaseboardContainer>
             </Footer>
-        </Container>
+        </Container >
     )
 }
 

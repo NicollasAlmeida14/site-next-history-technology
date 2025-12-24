@@ -37,7 +37,7 @@ function DefaultHeader() {
                     </Li>
 
                     <Li>
-                        <Link href="">Contrate-nos</Link>
+                        <Link href="#more-infos">Contrate-nos</Link>
                     </Li>
                 </Ul>
             </Nav>
