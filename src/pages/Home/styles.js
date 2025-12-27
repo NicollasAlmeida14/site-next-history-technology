@@ -202,7 +202,7 @@ export const PurposesSection = styled.section`
     align-items: center;
     width: 100%;
     justify-content: space-around;
-    padding: 1rem;
+    padding: 4rem 1rem 1rem;
 
     #vision-card {
         border-right: solid 3px #a038f3;

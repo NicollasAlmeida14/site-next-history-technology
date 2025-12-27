@@ -12,8 +12,12 @@ import {
 
 import Logo from '../../assets/logo-nh3.png'
 
+import { useNavigate } from "react-router-dom"
+
 
 function DefaultHeader() {
+    const navigate = useNavigate()
+
     return (
         <Header>
             <LogoContainer>
@@ -25,19 +29,21 @@ function DefaultHeader() {
             <Nav>
                 <Ul>
                     <Li>
-                        <Link href="#main">Home</Link>
+                        <Link onClick={() => navigate('/')} href="#main">Home</Link>
                     </Li>
 
                     <Li>
-                        <Link href="#about">Sobre</Link>
+                        <Link onClick={() => navigate('/')} href="#about">Sobre</Link>
                     </Li>
 
                     <Li>
-                        <Link >Simulador Financeiro</Link>
+                        <Link onClick={() => navigate('/simulador-financeiro-nh3')}>
+                            Simulador Financeiro
+                        </Link>
                     </Li>
 
                     <Li>
-                        <Link href="#more-infos">Contrate-nos</Link>
+                        <Link onClick={() => navigate('/')} href="#more-infos">Contrate-nos</Link>
                     </Li>
                 </Ul>
             </Nav>
