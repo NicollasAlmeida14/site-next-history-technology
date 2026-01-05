@@ -59,6 +59,8 @@ function FinancialSimulator() {
 
     const [activateSummary, setActivateSummary] = useState(false)
 
+    const [activateMask, setActivateMask] = useState(false)
+
     const minFineBase = 443.97
     const recidivismFine = 44396.84
     const employeeFine = 104.31
@@ -83,184 +85,193 @@ function FinancialSimulator() {
             alert('preencha as informações corretamente')
         } else {
             setActivateSummary(true)
+            setActivateMask(true)
         }
     }
 
+    const hideAll = () => {
+        setActivateMask(false)
+        setActivateSummary(false)
+    }
+
     return (
-        <Mask>
-            <Container>
-                <DefaultHeader />
+        <Container>
+            <Mask
+                theme={activateMask === true ? 'show' : ''}
+                onClick={hideAll}
+            ></Mask>
 
-                <Main>
-                    <DescriptionsContainer>
-                        <h1>Simulador Financeiro NH3</h1>
+            <DefaultHeader />
 
-                        <CardDescription>
-                            <Description>
-                                Um frigorífico deve ter sistemas de monitoramento de gás de acordo com a lei NR-15 e NR-36, e em caso de descumprimento, estará suscetível a multas e indenizações.
-                            </Description>
-                        </CardDescription>
+            <Main>
+                <DescriptionsContainer>
+                    <h1>Simulador Financeiro NH3</h1>
 
-                        <CardDescription>
-                            <Description>
-                                Calcule o prejuízo potencial em caso de vazamento de gás amônia no seu frigorífico e a recuperação com redução de riscos.
-                            </Description>
-                        </CardDescription>
-                    </DescriptionsContainer>
+                    <CardDescription>
+                        <Description>
+                            Um frigorífico deve ter sistemas de monitoramento de gás de acordo com a lei NR-15 e NR-36, e em caso de descumprimento, estará suscetível a multas e indenizações.
+                        </Description>
+                    </CardDescription>
 
-                    <InfosContainer>
-                        <InfosWrapper>
-                            <InputsContainer>
-                                <InputsContent>
-                                    <SpanInput>Faturamento diário</SpanInput>
-                                    <Input
-                                        type="number"
-                                        onChange={(e) => Number(setDailyBilling(e.target.value))}
-                                    />
-                                </InputsContent>
+                    <CardDescription>
+                        <Description>
+                            Calcule o prejuízo potencial em caso de vazamento de gás amônia no seu frigorífico e a recuperação com redução de riscos.
+                        </Description>
+                    </CardDescription>
+                </DescriptionsContainer>
 
-                                <InputsContent>
-                                    <SpanInput>Quantidade de funcionários</SpanInput>
+                <InfosContainer>
+                    <InfosWrapper>
+                        <InputsContainer>
+                            <InputsContent>
+                                <SpanInput>Faturamento diário</SpanInput>
+                                <Input
+                                    type="number"
+                                    onChange={(e) => Number(setDailyBilling(e.target.value))}
+                                />
+                            </InputsContent>
 
-                                    <Input
-                                        type="number"
-                                        onChange={(e) => Number(setQuantityEmployee(e.target.value))}
-                                    />
-                                </InputsContent>
-                            </InputsContainer>
+                            <InputsContent>
+                                <SpanInput>Quantidade de funcionários</SpanInput>
 
-                            <InputsContainer>
-                                <InputsContent>
-                                    <SpanInput>Houve paralisação?</SpanInput>
-                                    <Select
-                                        onChange={(e) => setSelectedValue(e.target.value)}
-                                        defaultValue={'#'}
-                                    >
-                                        <Option value={'#'} disabled>Escolha uma opção</Option>
-                                        <Option value={'no'}>Não</Option>
-                                        <Option value={'yes'}>Sim</Option>
-                                    </Select>
-                                </InputsContent>
+                                <Input
+                                    type="number"
+                                    onChange={(e) => Number(setQuantityEmployee(e.target.value))}
+                                />
+                            </InputsContent>
+                        </InputsContainer>
 
-                                <StrikerInputsContent theme={selectedValue === 'yes' ? 'valid' : ''}>
-                                    <SpanInput>Tempo de paralisação (dias)</SpanInput>
-                                    <Input type="number"
-                                        onChange={(e) => Number(setStrikesDay(e.target.value))}
-                                    />
-                                </StrikerInputsContent>
-                            </InputsContainer>
+                        <InputsContainer>
+                            <InputsContent>
+                                <SpanInput>Houve paralisação?</SpanInput>
+                                <Select
+                                    onChange={(e) => setSelectedValue(e.target.value)}
+                                    defaultValue={'#'}
+                                >
+                                    <Option value={'#'} disabled>Escolha uma opção</Option>
+                                    <Option value={'no'}>Não</Option>
+                                    <Option value={'yes'}>Sim</Option>
+                                </Select>
+                            </InputsContent>
 
-                            <Button onClick={validateInfos}>Calcular</Button>
-                        </InfosWrapper>
-                    </InfosContainer>
-                </Main>
+                            <StrikerInputsContent theme={selectedValue === 'yes' ? 'valid' : ''}>
+                                <SpanInput>Tempo de paralisação (dias)</SpanInput>
+                                <Input type="number"
+                                    onChange={(e) => Number(setStrikesDay(e.target.value))}
+                                />
+                            </StrikerInputsContent>
+                        </InputsContainer>
 
-                <ResultContainer theme={activateSummary === true ? 'visible' : ''}>
-                    <TablesContainer>
-                        <Table>
-                            <Tr>
-                                <Th colSpan={2}>Faturamento Mensal</Th>
-                            </Tr>
+                        <Button onClick={validateInfos}>Calcular</Button>
+                    </InfosWrapper>
+                </InfosContainer>
+            </Main>
 
-                            <Tr>
-                                <InfoTd>Faturamento estimado</InfoTd>
-                                <Td>{formatCurrency(monthlyBilling)}</Td>
-                            </Tr>
+            <ResultContainer theme={activateSummary === true ? 'visible' : ''}>
+                <TablesContainer>
+                    <Table>
+                        <Tr>
+                            <Th colSpan={2}>Faturamento Mensal</Th>
+                        </Tr>
 
-                            <Tr>
-                                <InfoTd>Impacto das multas</InfoTd>
-                                <Td>{`${formatCurrency(fineImpacts)}%`}</Td>
-                            </Tr>
-                        </Table>
+                        <Tr>
+                            <InfoTd>Faturamento estimado</InfoTd>
+                            <Td>{formatCurrency(monthlyBilling)}</Td>
+                        </Tr>
 
-                        <Table>
-                            <Tr>
-                                <Th colSpan={2}>Multas</Th>
-                            </Tr>
+                        <Tr>
+                            <InfoTd>Impacto das multas</InfoTd>
+                            <Td>{`${formatCurrency(fineImpacts)}%`}</Td>
+                        </Tr>
+                    </Table>
 
-                            <Tr>
-                                <InfoTd>Multa mínima</InfoTd>
-                                <Td>{formatCurrency(minFineBase)}</Td>
-                            </Tr>
+                    <Table>
+                        <Tr>
+                            <Th colSpan={2}>Multas</Th>
+                        </Tr>
 
-                            <Tr>
-                                <InfoTd>Multa máxima em caso de reincidência</InfoTd>
-                                <Td>{formatCurrency(maxFine)}</Td>
-                            </Tr>
+                        <Tr>
+                            <InfoTd>Multa mínima</InfoTd>
+                            <Td>{formatCurrency(minFineBase)}</Td>
+                        </Tr>
 
-                            <Tr>
-                                <InfoTd>Multa por funcionário</InfoTd>
-                                <Td>{formatCurrency(employeeFine)}</Td>
-                            </Tr>
-                        </Table>
-                    </TablesContainer>
+                        <Tr>
+                            <InfoTd>Multa máxima em caso de reincidência</InfoTd>
+                            <Td>{formatCurrency(maxFine)}</Td>
+                        </Tr>
 
-                    <PrejudiceContainer>
-                        <Subtitle>Prejuízo estimado</Subtitle>
+                        <Tr>
+                            <InfoTd>Multa por funcionário</InfoTd>
+                            <Td>{formatCurrency(employeeFine)}</Td>
+                        </Tr>
+                    </Table>
+                </TablesContainer>
 
-                        <LossCardContainer>
-                            <LossCardContent>
-                                <SubtitleSpan>Perda direta de faturamento:</SubtitleSpan>
-                                <LossSpan>
-                                    {selectedValue === 'yes' ? formatCurrency(loss) : formatCurrency(0)}
-                                </LossSpan>
-                            </LossCardContent>
+                <PrejudiceContainer>
+                    <Subtitle>Prejuízo estimado</Subtitle>
 
-                            <LossCardContent>
-                                <SubtitleSpan>Multa pelo total de funcionários:</SubtitleSpan>
-                                <LossSpan>{formatCurrency(employeeLoss)}</LossSpan>
-                            </LossCardContent>
-                        </LossCardContainer>
+                    <LossCardContainer>
+                        <LossCardContent>
+                            <SubtitleSpan>Perda direta de faturamento:</SubtitleSpan>
+                            <LossSpan>
+                                {selectedValue === 'yes' ? formatCurrency(loss) : formatCurrency(0)}
+                            </LossSpan>
+                        </LossCardContent>
 
-                        <FineContainer>
-                            <Span>
-                                Em caso de reincidência
-                                <i> <FaArrowRight /> </i>
-                            </Span>
+                        <LossCardContent>
+                            <SubtitleSpan>Multa pelo total de funcionários:</SubtitleSpan>
+                            <LossSpan>{formatCurrency(employeeLoss)}</LossSpan>
+                        </LossCardContent>
+                    </LossCardContainer>
 
-                            <div>
-                                <SubtitleSpan>Total de multas:</SubtitleSpan>
-                                <LossSpan>{formatCurrency(totalFine)}</LossSpan>
-                            </div>
-                        </FineContainer>
+                    <FineContainer>
+                        <Span>
+                            Em caso de reincidência
+                            <i> <FaArrowRight /> </i>
+                        </Span>
 
-                        <TitleSpan>Perda total estimada:</TitleSpan>
-                        <TotalLossSpan>{formatCurrency(totalLoss)}</TotalLossSpan>
-                    </PrejudiceContainer>
+                        <div>
+                            <SubtitleSpan>Total de multas:</SubtitleSpan>
+                            <LossSpan>{formatCurrency(totalFine)}</LossSpan>
+                        </div>
+                    </FineContainer>
 
-                    <LossReductionContainer>
-                        <Subtitle>Com nosso sistema...</Subtitle>
+                    <TitleSpan>Perda total estimada:</TitleSpan>
+                    <TotalLossSpan>{formatCurrency(totalLoss)}</TotalLossSpan>
+                </PrejudiceContainer>
 
-                        <LossReductionContent>
-                            <LossReductionWrapper>
-                                <SubtitleSpan>Simulação de redução de prejuízo</SubtitleSpan>
+                <LossReductionContainer>
+                    <Subtitle>Com nosso sistema...</Subtitle>
 
-                                <LossReductionDescription>
-                                    Com nossa equipe, você terá uma melhoria de
-                                    <br />
-                                    <br />
-                                    <ReductionSpan>{`${formatCurrency(fineImpacts)}%`}</ReductionSpan>
-                                    <br />
-                                    <br />
-                                    em cima do seu faturamento mensal referente ao total de multas
-                                </LossReductionDescription>
-                            </LossReductionWrapper>
+                    <LossReductionContent>
+                        <LossReductionWrapper>
+                            <SubtitleSpan>Simulação de redução de prejuízo</SubtitleSpan>
 
-                            <LossReductionWrapper>
-                                <SubtitleSpan>Eliminando a perda de:</SubtitleSpan>
+                            <LossReductionDescription>
+                                Com nossa equipe, você terá uma melhoria de
+                                <br />
+                                <br />
+                                <ReductionSpan>{`${formatCurrency(fineImpacts)}%`}</ReductionSpan>
+                                <br />
+                                <br />
+                                em cima do seu faturamento mensal referente ao total de multas
+                            </LossReductionDescription>
+                        </LossReductionWrapper>
 
-                                <ReductionSpan>{formatCurrency(totalFine)}</ReductionSpan>
+                        <LossReductionWrapper>
+                            <SubtitleSpan>Eliminando a perda de:</SubtitleSpan>
 
-                                <LossReductionDescription>em multas!</LossReductionDescription>
-                            </LossReductionWrapper>
-                        </LossReductionContent>
+                            <ReductionSpan>{formatCurrency(totalFine)}</ReductionSpan>
 
-                        <TitleSpan>Total Poupado:</TitleSpan>
-                        <TotalReductionSpan>{formatCurrency(totalSaved)}</TotalReductionSpan>
-                    </LossReductionContainer>
-                </ResultContainer>
-            </Container>
-        </Mask>
+                            <LossReductionDescription>em multas!</LossReductionDescription>
+                        </LossReductionWrapper>
+                    </LossReductionContent>
+
+                    <TitleSpan>Total Poupado:</TitleSpan>
+                    <TotalReductionSpan>{formatCurrency(totalSaved)}</TotalReductionSpan>
+                </LossReductionContainer>
+            </ResultContainer>
+        </Container>
     )
 }
 

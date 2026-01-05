@@ -21,12 +21,13 @@ const textEffect = keyframes`
 `
 
 export const Mask = styled.div`
-    /* width: 100%;
+    width: 100%;
     height: 100%;
     background: linear-gradient(109deg, rgba(10, 12, 16, 0.99) 15%, rgba(10, 12, 16, 0.7) 50%, rgba(10, 12, 16, 0.99) 85%);
     position: fixed;
     top: 0;
-    z-index: 1000; */
+    visibility: ${props => props.theme === 'show' ? 'visible' : 'hidden'};
+    transition: visibility ease-in-out 1s;
 `
 
 export const Container = styled.div`
@@ -150,12 +151,12 @@ export const Button = styled.button`
 
 export const ResultContainer = styled.div`
     position: fixed;
-    top: 25%;
+    top: ${props => props.theme === 'visible' ? '25%' : '-50%'};
     left: 25%;
     background-color: #ffffff;
     height: 60vh;
     width: 50vw;
-    display: ${props => props.theme === 'visible' ? 'flex' : 'none' };
+    display: flex;
     flex-direction: column;
     border-radius: 15px;
     box-shadow: 0 4px 8px 3px rgba(0, 0, 0, 0.15);
@@ -163,6 +164,7 @@ export const ResultContainer = styled.div`
     align-items: center;
     overflow-y: auto;
     gap: 2rem;
+    transition: top ease-in-out 1s;
 `
 
 export const TablesContainer = styled.div`
@@ -325,14 +327,14 @@ export const LossReductionDescription = styled.p`
 export const ReductionSpan = styled.span`
     font-size: 35px;
     font-weight: bold;
-    color: #00FF9C;
-    text-shadow: 2px 2px 2px rgba(0, 255, 156, 0.5);
+    color: #08CB00;
+    text-shadow: 2px 2px 2px rgba(8, 203, 0, 0.4)
 `
 
 export const TotalReductionSpan = styled.span`
     font-size: 45px;
     font-weight: bold;
-    color: #00FF9C;
-    text-shadow: 2px 2px 2px rgba(0, 255, 156, 0.5);
+    color: #08CB00;
+    text-shadow: 2px 2px 2px rgba(8, 203, 0, 0.4);
     animation: ${textEffect} infinite 2s ease-in-out;
 `
