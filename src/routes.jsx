@@ -19,13 +19,13 @@ const router = createBrowserRouter([
         )
     },
     {
-        path: '/tela-de-login',
+        path: '/tela-de-login-nh3',
         element: (
             <Login />
         )
     },
     {
-        path: '/tela-de-cadastro',
+        path: '/tela-de-cadastro-nh3',
         element: (
             <Register />
         )
