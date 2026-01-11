@@ -44,7 +44,7 @@ export const Link = styled.a`
         background-color: #ffffff;
         width: 0;
         border-radius: 15px;
-        transition: width ease-in-out 0.5s;
+        transition: width ease-in-out 0.3s;
     }
 
     &:hover::after {

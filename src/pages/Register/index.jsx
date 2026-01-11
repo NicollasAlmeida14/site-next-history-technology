@@ -43,41 +43,41 @@ function Register() {
       <InfosContainer>
         <Title>Cadastre-se</Title>
 
-        <img src={Logo} alt="" />
+        <img src={Logo} alt="Logo Next History Technology" />
 
         <InputsContainer>
           <DuoContainer>
             <InputWrapper>
-              <Input placeholder="" id="user-email" />
+              <Input placeholder="" id="user-email" type="email" />
               <InputLabel htmlFor="user-email">Email</InputLabel>
             </InputWrapper>
 
             <InputWrapper>
-              <Input placeholder="" id="user-name" />
+              <Input placeholder="" id="user-name" type="text" />
               <InputLabel htmlFor="user-name">Nome</InputLabel>
             </InputWrapper>
           </DuoContainer>
 
           <DuoContainer>
             <InputWrapper>
-              <Input placeholder="" id="user-phone" />
+              <Input placeholder="" id="user-phone" type="text" />
               <InputLabel htmlFor="user-phone">Telefone</InputLabel>
             </InputWrapper>
 
             <InputWrapper>
-              <Input placeholder="" id="user-id" />
+              <Input placeholder="" id="user-id" type="text" />
               <InputLabel htmlFor="user-id">CPF</InputLabel>
             </InputWrapper>
           </DuoContainer>
 
           <DuoContainer>
             <InputWrapper>
-              <Input placeholder="" id="user-password" />
+              <Input placeholder="" id="user-password" type="password" />
               <InputLabel htmlFor="user-password">Senha</InputLabel>
             </InputWrapper>
 
             <InputWrapper>
-              <Input placeholder="" id="repeat-password" />
+              <Input placeholder="" id="repeat-password" type="password" />
               <InputLabel htmlFor="repeat-password">Confirmar senha</InputLabel>
             </InputWrapper>
           </DuoContainer>
@@ -91,7 +91,7 @@ function Register() {
         <Button>Cadastrar</Button>
 
         <RegisterSpan>
-          Já é cadastrado? 
+          Já é cadastrado?
           <a href="/tela-de-login-nh3">Acesse sua conta</a>
         </RegisterSpan>
       </InfosContainer>
