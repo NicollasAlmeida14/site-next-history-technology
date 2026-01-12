@@ -1,7 +1,6 @@
 import {
   BannerContainer,
   BannerSpan,
-  Button,
   Container,
   DuoContainer,
   InfosContainer,
@@ -13,6 +12,8 @@ import {
   RegisterSpan,
   Title
 } from "./styles";
+
+import DefaultButton from "../../components/Button";
 
 import Logo from '../../assets/logo-nh3.png'
 
@@ -88,7 +89,7 @@ function Register() {
           </InputWrapper>
         </InputsContainer>
 
-        <Button>Cadastrar</Button>
+        <DefaultButton>Cadastrar</DefaultButton>
 
         <RegisterSpan>
           Já é cadastrado?

@@ -1,6 +1,5 @@
 import {
   BannerContainer,
-  Button,
   Container,
   ForgetPasswordSpan,
   InfosContainer,
@@ -15,6 +14,8 @@ import {
   Subtitle,
   Title
 } from './styles';
+
+import DefaultButton from '../../components/Button';
 
 import Logo from '../../assets/logo-nh3.png'
 
@@ -60,7 +61,7 @@ function Login() {
           </InputWrapper>
         </InputsContainer>
 
-        <Button>Acessar Conta</Button>
+        <DefaultButton>Acessar conta</DefaultButton>
 
         <Span>
           Ainda não tem conta?
