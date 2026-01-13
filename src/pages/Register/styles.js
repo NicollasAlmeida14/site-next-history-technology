@@ -137,7 +137,7 @@ export const Input = styled.input`
 
     &:focus ~ ${InputLabel},
     &:not(:placeholder-shown) ~ ${InputLabel}{
-        top: -10px;
+        top: -15px;
         left: 0;
         font-size: 1rem;
         color: #5a189a; 
