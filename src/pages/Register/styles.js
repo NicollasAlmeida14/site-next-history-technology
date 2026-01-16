@@ -123,6 +123,13 @@ export const InputLabel = styled.label`
     transition: all .5s;
     pointer-events: none;
     color: #5630D8;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+
+    span {
+        display: none;
+    }
 `
 
 export const Input = styled.input`
@@ -130,7 +137,7 @@ export const Input = styled.input`
     background: none;
     outline: none;
     width: 250px;
-    border-bottom: solid 2px rgba(86, 48, 216, 0.25);
+    border-bottom: solid 2px rgba(86, 48, 216, 0.25) ;
     opacity: 100%;
     padding: 0.7rem 0.5rem;
     font-size: 1.1rem;
@@ -140,13 +147,19 @@ export const Input = styled.input`
         top: -15px;
         left: 0;
         font-size: 1rem;
-        color: #5a189a; 
+        color: ${props => props.theme === 'invalid' ? '#f63049' : '#5a189a'}; 
         font-weight: 500;
+
+        span {
+            display: ${props => props.theme === 'invalid' ? 'inline' : 'none'};
+            color: #f63049;
+            font-size: 0.8rem;
+        }
     }
 
     &:focus ,
     &:not(:placeholder-shown) {
-        border-bottom: solid 2px #5a189a;
+        border-bottom: ${props => props.theme === 'invalid' ? 'solid 2px #f63049' : 'solid 2px #5a189a'};
     }
 `
 
