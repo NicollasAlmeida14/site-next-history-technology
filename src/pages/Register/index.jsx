@@ -14,6 +14,7 @@ import {
 } from "./styles";
 
 import DefaultButton from "../../components/Button";
+import DefaultPasswordIcon from "../../components/ShowPasswordIcon";
 
 import Logo from '../../assets/logo-nh3.png'
 
@@ -24,11 +25,14 @@ import {
 } from "react-icons/fa";
 
 import { useState } from "react";
-import DefaultPasswordIcon from "../../components/ShowPasswordIcon";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Register() {
   const notNumber = /\D/g
   const notLetter = /[^a-z A-z]/
+
+  const navigate = useNavigate()
 
   const [userEmail, setUserEmail] = useState('')
   const [userName, setUserName] = useState('')
@@ -48,6 +52,8 @@ function Register() {
   const [validatePassword, setValidatePassword] = useState(undefined)
   const [validateRepeatedPassword, setValidateRepeatedPassword] = useState(undefined)
   const [validateAdmissionCode, setValidateAdmissionCode] = useState(undefined)
+
+  const allSet = validateName && validateEmail && validatePhone && validateId && validatePassword && validateRepeatedPassword && validateAdmissionCode
 
   const tooglePassword = () => setShowPassword(prev => !prev)
 
@@ -146,6 +152,14 @@ function Register() {
     }
   }
 
+  const register = () => {
+    toast.success('Usuário cadastrado com sucesso! Redirecionando para a tela de login...')
+
+    setTimeout(() => {
+      navigate('/tela-de-login-nh3')
+    }, 2500);
+  }
+
   return (
     <Container>
       <BannerContainer>
@@ -187,6 +201,7 @@ function Register() {
                 placeholder=""
                 id="user-email"
                 type="email"
+                value={userEmail}
                 theme={validateEmail === false ? 'invalid' : ''}
               />
               <InputLabel htmlFor="user-email">
@@ -244,6 +259,7 @@ function Register() {
                 placeholder=""
                 id="user-password"
                 type={showPassword ? 'text' : 'password'}
+                value={userPassword}
                 theme={validatePassword === false ? 'invalid' : ''}
               />
               <DefaultPasswordIcon onClick={tooglePassword}>
@@ -264,6 +280,7 @@ function Register() {
                 placeholder=""
                 id="repeat-password"
                 type={showRepeatedPassword ? 'text' : 'password'}
+                value={repeatPassword}
                 theme={validateRepeatedPassword === false ? 'invalid' : ''}
               />
 
@@ -285,6 +302,7 @@ function Register() {
               onChange={handleChangeAdmissionCode}
               placeholder=""
               id="admission-code"
+              value={admissionCode}
               theme={validateAdmissionCode === false ? 'invalid' : ''}
             />
             <InputLabel htmlFor="admission-code">
@@ -296,7 +314,13 @@ function Register() {
           </InputWrapper>
         </InputsContainer>
 
-        <DefaultButton>Cadastrar</DefaultButton>
+        <DefaultButton
+          theme={!allSet ? 'disabled' : ''}
+          disabled={!allSet}
+          onClick={register}
+        >
+          Cadastrar
+        </DefaultButton>
 
         <RegisterSpan>
           Já é cadastrado?
