@@ -10,7 +10,8 @@ import {
   InputWrapper,
   Link,
   RegisterSpan,
-  Title
+  Title,
+  ReloadIcon
 } from "./styles";
 
 import DefaultButton from "../../components/Button";
@@ -52,6 +53,8 @@ function Register() {
   const [validatePassword, setValidatePassword] = useState(undefined)
   const [validateRepeatedPassword, setValidateRepeatedPassword] = useState(undefined)
   const [validateAdmissionCode, setValidateAdmissionCode] = useState(undefined)
+
+  const [loading, setLoading] = useState(false)
 
   const allSet = validateName && validateEmail && validatePhone && validateId && validatePassword && validateRepeatedPassword && validateAdmissionCode
 
@@ -153,11 +156,12 @@ function Register() {
   }
 
   const register = () => {
+    setLoading(true)
     toast.success('Usuário cadastrado com sucesso! Redirecionando para a tela de login...')
 
     setTimeout(() => {
       navigate('/tela-de-login-nh3')
-    }, 2500);
+    }, 3500);
   }
 
   return (
@@ -315,11 +319,11 @@ function Register() {
         </InputsContainer>
 
         <DefaultButton
-          theme={!allSet ? 'disabled' : ''}
-          disabled={!allSet}
+          theme={!allSet || loading === true ? 'disabled' : ''}
+          disabled={!allSet || loading === true}
           onClick={register}
         >
-          Cadastrar
+          {loading === true ? <ReloadIcon /> : 'Cadastrar'}
         </DefaultButton>
 
         <RegisterSpan>

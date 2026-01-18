@@ -14,10 +14,10 @@ export const Button = styled.button`
     transition: all ease-in-out 0.3s;
 
     &:hover {
-        ${props => props.theme === 'disabled' ? '' : 'transform: translateY(-5px)'};
+        ${props => props.theme === 'disabled' ? '' : 'opacity:0.8'};
     }
 
     &:active {
-        ${props => props.theme === 'disabled' ? '' : 'transform: translateY(0); opacity: 0.7;'}
+        ${props => props.theme === 'disabled' ? '' : 'opacity: 0.6;'}
     }
 `

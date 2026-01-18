@@ -1,6 +1,22 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+import { IoReload } from "react-icons/io5";
 
 import Banner from '../../assets/banner.png'
+
+const loading = keyframes`
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+`
+
+export const ReloadIcon = styled(IoReload)`
+    animation: ${loading} infinite 1s ease-in-out;
+`
 
 export const Container = styled.div`
     height: 100vh;
