@@ -43,8 +43,8 @@ function Register() {
   const [repeatPassword, setRepeatPassword] = useState('')
   const [admissionCode, setAdmissionCode] = useState('')
 
-  const [showPassword, setShowPassword] = useState(false)
-  const [showRepeatedPassword, setShowRepeatedPassword] = useState(false)
+  const [showingPassword, setShowingPassword] = useState(false)
+  const [showingRepeatedPassword, setShowingRepeatedPassword] = useState(false)
 
   const [validateEmail, setValidateEmail] = useState(undefined)
   const [validateName, setValidateName] = useState(undefined)
@@ -58,9 +58,9 @@ function Register() {
 
   const allSet = validateName && validateEmail && validatePhone && validateId && validatePassword && validateRepeatedPassword && validateAdmissionCode
 
-  const tooglePassword = () => setShowPassword(prev => !prev)
+  const tooglePassword = () => setShowingPassword(prev => !prev)
 
-  const toogleRepeatedPassword = () => setShowRepeatedPassword(prev => !prev)
+  const toogleRepeatedPassword = () => setShowingRepeatedPassword(prev => !prev)
 
   const handleChangeName = (e) => {
     const formattedName = e.target.value.replace(notLetter, '')
@@ -262,12 +262,12 @@ function Register() {
                 onChange={handleChangePassword}
                 placeholder=""
                 id="user-password"
-                type={showPassword ? 'text' : 'password'}
+                type={showingPassword ? 'text' : 'password'}
                 value={userPassword}
                 theme={validatePassword === false ? 'invalid' : ''}
               />
               <DefaultPasswordIcon onClick={tooglePassword}>
-                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                {showingPassword ? <FaEyeSlash /> : <FaEye />}
               </DefaultPasswordIcon>
 
               <InputLabel htmlFor="user-password">
@@ -283,19 +283,19 @@ function Register() {
                 onChange={handleChangeRepeatedPassword}
                 placeholder=""
                 id="repeat-password"
-                type={showRepeatedPassword ? 'text' : 'password'}
+                type={showingRepeatedPassword ? 'text' : 'password'}
                 value={repeatPassword}
                 theme={validateRepeatedPassword === false ? 'invalid' : ''}
               />
 
               <DefaultPasswordIcon onClick={toogleRepeatedPassword}>
-                {showRepeatedPassword ? <FaEyeSlash /> : <FaEye />}
+                {showingRepeatedPassword ? <FaEyeSlash /> : <FaEye />}
               </DefaultPasswordIcon>
 
               <InputLabel htmlFor="repeat-password">
                 Confirmar senha
                 <span theme={validateRepeatedPassword === false ? 'invalid' : ''}>
-                  (As senhas precisam ser iguais)
+                  (Senhas diferentes)
                 </span>
               </InputLabel>
             </InputWrapper>
@@ -312,18 +312,18 @@ function Register() {
             <InputLabel htmlFor="admission-code">
               Código de ativação
               <span theme={validateAdmissionCode === false ? 'invalid' : ''}>
-                (Informe um código válido!)
+                (Código inválido!)
               </span>
             </InputLabel>
           </InputWrapper>
         </InputsContainer>
 
         <DefaultButton
-          theme={!allSet || loading === true ? 'disabled' : ''}
-          disabled={!allSet || loading === true}
+          theme={!allSet || loading ? 'disabled' : ''}
+          disabled={!allSet || loading}
           onClick={register}
         >
-          {loading === true ? <ReloadIcon /> : 'Cadastrar'}
+          {loading ? <ReloadIcon /> : 'Cadastrar'}
         </DefaultButton>
 
         <RegisterSpan>

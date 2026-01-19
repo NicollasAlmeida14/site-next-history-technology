@@ -1,6 +1,22 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+import { IoReload } from "react-icons/io5";
 
 import Banner from '../../assets/banner.png'
+
+const loading = keyframes`
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+`
+
+export const ReloadIcon = styled(IoReload)`
+    animation: ${loading} infinite 1s ease-in-out;
+`
 
 export const Container = styled.div`
     height: 100vh;
@@ -105,11 +121,14 @@ export const InputsContainer = styled.div`
     gap: 3rem;
 `
 
-export const InputWrapper = styled.div`
-    position: relative;
+export const PasswordInputContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.7rem;
+`
+
+export const InputWrapper = styled.div`
+    position: relative;
 `
 
 export const InputLabel = styled.label`
@@ -136,8 +155,14 @@ export const Input = styled.input`
         left: 0;
         top: -15px;
         font-size: 1rem;
-        color: #5a189a;
+        color: ${props => props.theme === 'invalid' ? '#f63049' : '#5a189a'}; 
         font-weight: 500;
+
+        span {
+            display: ${props => props.theme === 'invalid' ? 'inline' : 'none'};
+            color: #f63049;
+            font-size: 0.8rem;
+        }
     }
 
     &:focus,
@@ -146,12 +171,31 @@ export const Input = styled.input`
     }
 `
 
-export const ForgetPasswordSpan = styled.span``
+export const ForgetPasswordSpan = styled.span`
+    font-size: 0.9rem;
+    color: #5630D8;
+    font-weight: bold;
+    display: flex;
+    gap: 0.3rem;
+
+    a {
+        opacity: 0.5;
+        transition: all ease-in-out 0.3s;
+
+        &:hover {
+            text-decoration: none;
+            color: #5630D8;
+            opacity: 0.8;
+        }
+    }
+`
 
 export const Span = styled.span`
     font-size: 1.2rem;
     color: #5630D8;
     font-weight: bold;
+    display: flex;
+    gap: 0.5rem;
 
     a {
         opacity: 0.5;

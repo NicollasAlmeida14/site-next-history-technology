@@ -183,6 +183,8 @@ export const RegisterSpan = styled.span`
     font-size: 1.2rem;
     color: #5630D8;
     font-weight: bold;
+    display: flex;
+    gap: 0.5rem;
 
     a {
         opacity: 0.5;
