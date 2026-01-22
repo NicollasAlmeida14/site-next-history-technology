@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import FinancialSimulator from "./pages/FinancialSimulator";
 import Login from './pages/Login'
 import Register from './pages/Register'
+import Dashboard from "./pages/Dashboard";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,12 @@ const router = createBrowserRouter([
         path: '/tela-de-cadastro-nh3',
         element: (
             <Register />
+        )
+    },
+    {
+        path: '/dashboard',
+        element: (
+            <Dashboard />
         )
     }
 ])

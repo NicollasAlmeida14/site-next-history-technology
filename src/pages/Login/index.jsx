@@ -32,7 +32,11 @@ import { toast } from 'react-toastify';
 
 import { useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
 function Login() {
+  const navigate = useNavigate()
+
   const [showingPassword, setShowingPassword] = useState(false)
   const [loading, setLoading] = useState(false)
 
@@ -77,6 +81,7 @@ function Login() {
     if (userEmail === 'nicollas@gmail.com' && userPassword === '12345678') {
       setTimeout(() => {
         toast.success('Login realizado com sucesso!')
+        navigate('/dashboard')
       }, 5000);
     } else {
       setTimeout(() => {
