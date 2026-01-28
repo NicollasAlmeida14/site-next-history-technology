@@ -1,26 +1,3 @@
-import DetectionImage from '../../assets/deteccao.png'
-import FastResponseImage from '../../assets/resposta.png'
-import MonitoringImage from '../../assets/monitoramento.png'
-import Logo from '../../assets/logo-nh3.png'
-import RefrigerationSystem from '../../assets/sistema-refrigeracao.png'
-import Mission from '../../assets/missao.png'
-import Vision from '../../assets/visao.png'
-import Values from '../../assets/valor.png'
-import LogoFooter from '../../assets/logo-footer.png'
-import MeterBow from '../../assets/arco.png'
-
-import {
-    FaInstagram,
-    FaLinkedin,
-    FaGithub,
-    FaCheck,
-    FaCheckCircle
-} from "react-icons/fa";
-
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
-
-
 import {
     AboutUsDescriptionCard,
     AboutUsSection,
@@ -98,7 +75,33 @@ import {
 
 import DefaultHeader from "../../components/Header"
 
+import DetectionImage from '../../assets/deteccao.png'
+import FastResponseImage from '../../assets/resposta.png'
+import MonitoringImage from '../../assets/monitoramento.png'
+import Logo from '../../assets/logo-nh3.png'
+import RefrigerationSystem from '../../assets/sistema-refrigeracao.png'
+import Mission from '../../assets/missao.png'
+import Vision from '../../assets/visao.png'
+import Values from '../../assets/valor.png'
+import LogoFooter from '../../assets/logo-footer.png'
+import MeterBow from '../../assets/arco.png'
+
+import {
+    FaInstagram,
+    FaLinkedin,
+    FaGithub,
+    FaCheck,
+    FaCheckCircle
+} from "react-icons/fa";
+
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+
+import { useNavigate } from "react-router-dom"
+
 function Home() {
+    const navigate = useNavigate()
+
     const anotherTab = (url) => {
         window.open(url, '_blank')
     }
@@ -479,7 +482,9 @@ function Home() {
                             <input type="range" min={0} max={50} />
                         </SimulatorContainer>
 
-                        <MetricButton>Entenda nosso sistema</MetricButton>
+                        <MetricButton onClick={() => navigate('tela-de-metricas-nh3')}>
+                            Entenda nosso sistema
+                        </MetricButton>
                     </MetricsContainer>
                 </MetricsWrapper>
             </MoreInfosSection>

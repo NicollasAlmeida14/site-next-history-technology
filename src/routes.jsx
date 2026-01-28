@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import FinancialSimulator from "./pages/FinancialSimulator";
 import Login from './pages/Login'
 import Register from './pages/Register'
+import Metrics from "./pages/Metrics";
 import Dashboard from "./pages/Dashboard";
 
 const router = createBrowserRouter([
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
         element: (
             <Register />
         )
+    },
+    {
+        path: 'tela-de-metricas-nh3',
+        element: <Metrics />
     },
     {
         path: '/dashboard',
