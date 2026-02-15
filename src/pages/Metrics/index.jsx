@@ -2,12 +2,15 @@ import {
     Container,
     Description,
     Header,
+    HeaderTextsContainer,
     IconBackground,
     LimitsContainer,
     LimitsSubtitle,
     LimitsTitle,
     Link,
+    LinkContainer,
     NormsSpan,
+    NormsTd,
     PpmSpan,
     ReferecesContainer,
     ReferencesCard,
@@ -26,6 +29,11 @@ import {
     Wrapper
 } from "./styles";
 
+import Logo from '../../assets/logo-nh3.png'
+import InsuranceLogo from '../../assets/seguro.png'
+import WarningLogo from '../../assets/metrica-alerta.png'
+import RedWarningLogo from '../../assets/metrica-risco.png'
+
 import { FaArrowLeft, FaFileAlt } from "react-icons/fa";
 import { LuGauge, LuShield } from "react-icons/lu";
 
@@ -33,29 +41,30 @@ function Metrics() {
     return (
         <Container>
             <Header>
-                <Link>
-                    <FaArrowLeft />
-                    Voltar
-                </Link>
+                <LinkContainer>
+                    <Link href="/">
+                        <FaArrowLeft />
+                        Voltar
+                    </Link>
 
-                <Wrapper>
                     <IconBackground>
                         <LuGauge />
                     </IconBackground>
+                </LinkContainer>
 
-                    <TextsContainer>
-                        <Title>Métricas de <span>Monitoramento NH3</span></Title>
+                <HeaderTextsContainer>
+                    <Title>Métricas de <span>Monitoramento NH3</span></Title>
 
-                        <Subtitle>
-                            Garanta segurança e conformidade com as normas brasileiras
-                        </Subtitle>
-                    </TextsContainer>
-                </Wrapper>
+                    <Subtitle>
+                        Garanta segurança e conformidade com as normas brasileiras
+                    </Subtitle>
+                </HeaderTextsContainer>
+
 
                 <Stamp>
-                    <LuShield />
+                    <LuShield style={{ fontSize: '1.55rem' }} />
 
-                    <NormsSpan>NR 15 | NR 33 | NR36</NormsSpan>
+                    <NormsSpan>NR 15 | NR 33 | NR 36</NormsSpan>
                 </Stamp>
             </Header>
 
@@ -63,10 +72,10 @@ function Metrics() {
                 <ReferencesTitle>Níveis de Referência</ReferencesTitle>
 
                 <ReferencesCardContainer>
-                    <ReferencesCard>
+                    <ReferencesCard theme={'Insurance'}>
                         <StatusSpan>Seguro</StatusSpan>
 
-                        <StatusImage src />
+                        <StatusImage src={InsuranceLogo} />
 
                         <PpmSpan>0 - 5 PPM</PpmSpan>
 
@@ -75,10 +84,10 @@ function Metrics() {
                         </Description>
                     </ReferencesCard>
 
-                    <ReferencesCard>
+                    <ReferencesCard theme={'Moderate'}>
                         <StatusSpan>Risco Moderado</StatusSpan>
 
-                        <StatusImage src />
+                        <StatusImage src={WarningLogo} />
 
                         <PpmSpan>6 - 25 PPM</PpmSpan>
 
@@ -87,10 +96,10 @@ function Metrics() {
                         </Description>
                     </ReferencesCard>
 
-                    <ReferencesCard>
+                    <ReferencesCard theme={'High'}>
                         <StatusSpan>Risco Alto</StatusSpan>
 
-                        <StatusImage src />
+                        <StatusImage src={WarningLogo} />
 
                         <PpmSpan>26 - 50 PPM</PpmSpan>
 
@@ -102,7 +111,7 @@ function Metrics() {
                     <ReferencesCard>
                         <StatusSpan>Risco Crítico</StatusSpan>
 
-                        <StatusImage src />
+                        <StatusImage src={RedWarningLogo} />
 
                         <PpmSpan>+50 PPM</PpmSpan>
 
@@ -114,63 +123,76 @@ function Metrics() {
 
                 <LimitsContainer>
                     <Wrapper>
-                        <FaFileAlt />
+                        <IconBackground
+                            style={{
+                                width: '35px',
+                                height: '35px',
+                                fontSize: '1.5rem'
+                            }}>
+                            <FaFileAlt />
+                        </IconBackground>
 
                         <TextsContainer>
                             <LimitsTitle>Limites Normativos</LimitsTitle>
 
                             <LimitsSubtitle>Referências NR 15, NR 33 e NR 36</LimitsSubtitle>
                         </TextsContainer>
-
-                        <Table>
-                            <Tr>
-                                <Th>Norma Regulamentadora</Th>
-                                <Th>O que estabelece?</Th>
-                                <Th>Observações</Th>
-                            </Tr>
-
-                            <Tr>
-                                <Td>NR 15</Td>
-
-                                <Td>
-                                    Estabelece o limite de exposição a agentes quimicos em até 20 ppm para 48h semanais por jornada
-                                </Td>
-
-                                <Td>
-                                    Base legal para controle de exposição;
-                                    <br />
-                                    Serve de referência para alarmes de segurança.
-                                </Td>
-                            </Tr>
-
-                            <Tr>
-                                <Td>NR 33</Td>
-
-                                <Td>
-                                    Exige avaliação contínua de ambientes confinados, ou seja, monitoramento.
-                                </Td>
-
-                                <Td>Previne asfixia e explosões por acúmulo de gás;
-                                    <br />
-                                    Garante ventilação adequada e planos de emergência.
-                                </Td>
-                            </Tr>
-
-                            <Tr>
-                                <Td>NR 36</Td>
-
-                                <Td>
-                                    Determina a instalação de sensores e alertas de segurança em frigoríficos e câmaras frias.
-                                </Td>
-
-                                <Td>
-                                    Define ações automáticas em caso de vazamento;
-                                    <br />
-                                    Protege os trabalhadores e evita contaminação dos alimentos.
-                                </Td>
-                            </Tr>
-                        </Table>
                     </Wrapper>
+
+                    <Table>
+                        <Tr>
+                            <Th>Norma Regulamentadora</Th>
+                            <Th>O que estabelece?</Th>
+                            <Th>Observações</Th>
+                        </Tr>
+
+                        <Tr>
+                            <NormsTd>NR 15</NormsTd>
+
+                            <Td>
+                                Estabelece o limite de exposição a agentes quimicos em até 20
+                                <br />
+                                ppm para 48h semanais por jornada
+                            </Td>
+
+                            <Td>
+                                Base legal para controle de exposição;
+                                <br />
+                                Serve de referência para alarmes de segurança.
+                            </Td>
+                        </Tr>
+
+                        <Tr>
+                            <NormsTd>NR 33</NormsTd>
+
+                            <Td>
+                                Exige avaliação contínua de ambientes confinados, ou seja,
+                                <br />
+                                monitoramento.
+                            </Td>
+
+                            <Td>Previne asfixia e explosões por acúmulo de gás;
+                                <br />
+                                Garante ventilação adequada e planos de emergência.
+                            </Td>
+                        </Tr>
+
+                        <Tr>
+                            <NormsTd>NR 36</NormsTd>
+
+                            <Td>
+                                Determina a instalação de sensores e alertas de segurança em
+                                <br />
+                                frigoríficos e câmaras frias.
+                            </Td>
+
+                            <Td>
+                                Define ações automáticas em caso de vazamento;
+                                <br />
+                                Protege os trabalhadores e evita contaminação dos alimentos.
+                            </Td>
+                        </Tr>
+                    </Table>
                 </LimitsContainer>
             </ReferecesContainer>
 
