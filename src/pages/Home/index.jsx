@@ -430,7 +430,7 @@ function Home() {
                         </PlansCardContainer>
                     </PlansContainer>
 
-                    <PlansButton>Ver planos detalhados</PlansButton>
+                    <PlansButton onClick={() => navigate('planos-nh3')}>Ver planos detalhados</PlansButton>
 
                     <PlanDescription>
                         Mais segurança, economia e tranquilidade para o seu frigorífico
@@ -482,7 +482,7 @@ function Home() {
                             <input type="range" min={0} max={50} />
                         </SimulatorContainer>
 
-                        <MetricButton onClick={() => navigate('tela-de-metricas-nh3')}>
+                        <MetricButton onClick={() => navigate('metricas-nh3')}>
                             Entenda nosso sistema
                         </MetricButton>
                     </MetricsContainer>

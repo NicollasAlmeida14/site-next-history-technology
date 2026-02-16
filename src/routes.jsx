@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import FinancialSimulator from "./pages/FinancialSimulator";
 import Login from './pages/Login'
 import Register from './pages/Register'
+import Plans from "./pages/Plans";
 import Metrics from "./pages/Metrics";
 import Dashboard from "./pages/Dashboard";
 
@@ -21,19 +22,25 @@ const router = createBrowserRouter([
         )
     },
     {
-        path: '/tela-de-login-nh3',
+        path: '/login-nh3',
         element: (
             <Login />
         )
     },
     {
-        path: '/tela-de-cadastro-nh3',
+        path: '/cadastro-nh3',
         element: (
             <Register />
         )
     },
     {
-        path: 'tela-de-metricas-nh3',
+        path: '/planos-nh3',
+        element: (
+            <Plans />
+        )
+    },
+    {
+        path: '/metricas-nh3',
         element: <Metrics />
     },
     {
