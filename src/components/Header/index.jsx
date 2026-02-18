@@ -49,11 +49,11 @@ function DefaultHeader() {
             </Nav>
 
             <ButtonsContainer>
-                <LoginButton type="button" onClick={() => navigate('/tela-de-login-nh3')}>
+                <LoginButton type="button" onClick={() => navigate('/login-nh3')}>
                     Login
                 </LoginButton>
 
-                <RegisterButton type="button" onClick={() => navigate('/tela-de-cadastro-nh3')}>
+                <RegisterButton type="button" onClick={() => navigate('/cadastro-nh3')}>
                     Cadastrar
                 </RegisterButton>
             </ButtonsContainer>

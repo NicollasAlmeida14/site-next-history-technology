@@ -160,7 +160,7 @@ function Register() {
     toast.success('Usuário cadastrado com sucesso! Redirecionando para a tela de login...')
 
     setTimeout(() => {
-      navigate('/tela-de-login-nh3')
+      navigate('/login-nh3')
     }, 3500);
   }
 
@@ -328,7 +328,7 @@ function Register() {
 
         <RegisterSpan>
           Já é cadastrado?
-          <a href="/tela-de-login-nh3">Acesse sua conta</a>
+          <a href="/login-nh3">Acesse sua conta</a>
         </RegisterSpan>
       </InfosContainer>
     </Container >

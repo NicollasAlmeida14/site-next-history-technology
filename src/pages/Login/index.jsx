@@ -157,7 +157,7 @@ function Login() {
 
         <Span>
           Ainda não tem conta?
-          <a href="/tela-de-cadastro-nh3">Criar conta</a>
+          <a href="/cadastro-nh3">Criar conta</a>
         </Span>
       </InfosContainer>
     </Container>
