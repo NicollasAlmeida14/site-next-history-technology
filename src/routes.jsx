@@ -8,45 +8,63 @@ import Plans from "./pages/Plans";
 import Metrics from "./pages/Metrics";
 import Dashboard from "./pages/Dashboard";
 
+import ScrollToTop from "./components/ScrollToTop";
+
 const router = createBrowserRouter([
     {
         path: '/',
         element: (
-            <Home />
+            <ScrollToTop>
+                <Home />
+            </ScrollToTop>
         )
     },
     {
         path: '/simulador-financeiro-nh3',
         element: (
-            <FinancialSimulator />
+            <ScrollToTop>
+                <FinancialSimulator />
+            </ScrollToTop>
         )
     },
     {
         path: '/login-nh3',
         element: (
-            <Login />
+            <ScrollToTop>
+                <Login />
+            </ScrollToTop>
         )
     },
     {
         path: '/cadastro-nh3',
         element: (
-            <Register />
+            <ScrollToTop>
+                <Register />
+            </ScrollToTop>
         )
     },
     {
         path: '/planos-nh3',
         element: (
-            <Plans />
+            <ScrollToTop>
+                <Plans />
+            </ScrollToTop>
         )
     },
     {
         path: '/metricas-nh3',
-        element: <Metrics />
+        element: (
+            <ScrollToTop>
+                <Metrics />
+            </ScrollToTop>
+        )
     },
     {
         path: '/dashboard',
         element: (
-            <Dashboard />
+            <ScrollToTop>
+                <Dashboard />
+            </ScrollToTop>
         )
     }
 ])
